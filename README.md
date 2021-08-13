@@ -1,2 +1,2 @@
-# SmolURL
+# IckleURl
 Tech Test for URL Shortener
