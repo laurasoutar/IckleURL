@@ -1,0 +1,32 @@
+﻿
+@model IckleUrl.Models.ShortUrl
+
+@{ ViewBag.Title = "Ickle URL"; }
+
+<h2>Make a Ickle URL</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+<div class="form-group">
+    @Html.TextBoxFor(model => model.FullUrl, new { placeholder = "Full URL please", @class = "form-control" })
+</div> 
+if (!string.IsNullOrEmpty(Model.ShortenedUrl))
+    {
+    <div>
+        <h3><a href="@Model.ShortenedUrl" target="_blank">@Model.ShortenedUrl</a></h3>
+    </div> 
+    }
+
+    if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div>
+            <h3>
+                @Model.ErrorMessage
+            </h3>
+        </div>
+    }
+
+<input type="submit" class="btn btn-primary" value="Make Ickle URL" />}
+
